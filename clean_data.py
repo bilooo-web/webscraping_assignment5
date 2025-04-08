@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 # Load the dataset with all columns read as strings
-df = pd.read_csv("ebay_tech_deals.csv", dtype=str)
+df = pd.read_csv("webscraping_assignment5/ebay_tech_deals.csv", dtype=str)
 
 # --- Step 1: Clean Price Columns ---
 #this helps in encapsulation, convert_value handles the conversion of a single element,
@@ -49,5 +49,5 @@ df["discount_percentage"] = df["discount_percentage"].fillna(0)
 df = df.dropna(subset=["price", "original_price"])
 
 # --- Step 7: Save the Cleaned Data ---
-df.to_csv("cleaned_ebay_deals.csv", index=False)
+df.to_csv("webscraping_assignment5/cleaned_ebay_deals.csv", index=False)
 print("Data cleaning complete. Cleaned data saved as 'cleaned_ebay_deals.csv'.")
