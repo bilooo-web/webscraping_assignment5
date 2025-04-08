@@ -98,13 +98,10 @@ plt.show()
 
 df_incomplete = df.drop(columns=["discount_percentage"])
 
-# Randomly select 20 products with key features
 df_sample = df_incomplete.sample(n=20, random_state=42)[['title', 'price', 'original_price', 'shipping']]
 
-# Predict discount percentage using the trained model
 X_new = df_sample[['price', 'original_price', 'shipping']]
 df_sample['Predicted Discount (%)'] = model.predict(X_new)
 
-# Display results in table format
 print("\nPredicted Discounts for 20 Products:\n")
 print(df_sample[['title', 'price', 'original_price', 'shipping', 'Predicted Discount (%)']].to_string(index=False))
